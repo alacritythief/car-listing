@@ -1,0 +1,28 @@
+<h1>Add a manufacturer</h1>
+
+<%= form_for @manufacturer do |f| %>
+
+<% if @manufacturer.errors.any? %>
+  <h3><%= pluralize(@manufacturer.errors.count, "error") %> prohibited this manufacturer from being added:</h3>
+  <ul>
+    <% @manufacturer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :country %>
+  <%= f.text_field :country %>
+</p>
+
+<p>
+  <%= f.submit 'Add Manufacturer' %>
+</p>
+
+<% end %>
