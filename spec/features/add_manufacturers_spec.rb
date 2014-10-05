@@ -2,10 +2,25 @@ require 'rails_helper'
 
 feature 'adding a manufacturer' do
   scenario 'user submits valid manufacturer' do
+    visit '/manufacturers/new'
 
-  # I must specify a manufacturer name and country.
-  # If I do not specify the required information, I am presented with errors.
-  # If I specify the required information, the manufacturer is recorded and I am redirected to the index of manufacturers
+    fill_in "Name", with: "Volkswagen"
+    fill_in "Country", with: "Germany"
 
+    click_button "Add Manufacturer"
+
+    expect(page).to have_content("Volkswagen")
+    expect(page).to have_content("Germany")
+  end
+
+  scenario 'user submits a blank form' do
+    visit '/manufacturers/new'
+
+    click_button "Add Manufacturer"
+
+    expect(page).to have_content("errors")
+
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Country can't be blank")
   end
 end
