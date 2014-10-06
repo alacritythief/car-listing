@@ -1,13 +1,19 @@
 <h1>Manufacturers</h1>
 
-<ul>
-  <% @manufacturers.each do |manufacturer| %>
-    <li>
-      <p><%= manufacturer.name %></p>
-      <p><%= manufacturer.country %></p>
-    </li>
-  <% end %>
-</ul>
+
+<% if @manufacturers.empty? %>
+  <ul>
+    <li>No manufacturers listed!</li>
+  </ul>
+<% else %>
+  <ul>
+    <% @manufacturers.each do |manufacturer| %>
+      <li>
+        <p><%= link_to manufacturer.name, manufacturer %></p>
+        <p>Country: <%= manufacturer.country %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 
 <p><%= link_to 'Add a Manufacturer', new_manufacturer_path %></p>
-<p><%= link_to 'See Available Cars', cars_path %></p>

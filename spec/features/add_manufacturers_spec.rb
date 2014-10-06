@@ -9,6 +9,7 @@ feature 'adding a manufacturer' do
 
     click_button "Add Manufacturer"
 
+    expect(page).to have_content("Manufacturer posted.")
     expect(page).to have_content("Volkswagen")
     expect(page).to have_content("Germany")
   end
@@ -18,8 +19,8 @@ feature 'adding a manufacturer' do
 
     click_button "Add Manufacturer"
 
+    expect(page).to have_content("We couldn't post your Manufacturer.")
     expect(page).to have_content("errors")
-
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Country can't be blank")
   end

@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <p><%= link_to 'See Car Manufacturers', manufacturers_path %></p>
+  <p><%= link_to 'See Available Cars', cars_path %></p>
 
-<%= yield %>
+  <p><strong><%= notice %></strong></p>
 
+  <%= yield %>
 </body>
 </html>
