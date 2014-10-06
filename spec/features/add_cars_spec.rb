@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'adding a car' do
   before :each do
-    manufacturer = Manufacturer.create(name: "Bobco", country: "Canada")
+    Manufacturer.create(name: "Bobco", country: "Canada")
   end
 
   scenario 'user submits valid car' do

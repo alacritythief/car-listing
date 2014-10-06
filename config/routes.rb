@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root "manufacturers#index"
 
-  resources :manufacturers
-  resources :cars
+  resources :manufacturers, only: [:index, :show, :new, :create]
+  resources :cars, only: [:index, :show, :new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
